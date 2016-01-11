@@ -14,9 +14,9 @@ class Leads extends Controller
         $active = "skin-green sidebar-mini";
         $active_menu = "add_leads";
         $loggedin_user = $_SESSION["loggedin_user"];
-        $countTodayLeads = $this->model->countAllFollowupForCounsellor($loggedin_user["user_id"]);
+        $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+        $countTodayLeads = sizeof($leads_detail_today);
         $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
-        $leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
         $edit_lead = false;
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
@@ -108,14 +108,14 @@ class Leads extends Controller
 
         if ($loggedin_user["user_role"]=="Counsellor") {
             $leads_detail = $this->model->getAllLeadsForCounsellor($loggedin_user["user_id"]);
-            $countTodayLeads = $this->model->countAllFollowupForCounsellor($loggedin_user["user_id"]);
+            $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+            $countTodayLeads = sizeof($leads_detail_today);
             $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);       
-            $leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
         }else{
             $leads_detail = $this->model->getAllLeads();
-            $countTodayLeads = $this->model->countAllFollowupForCounsellor($loggedin_user["user_id"]);
+            $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+            $countTodayLeads = sizeof($leads_detail_today);
             $countLead = sizeof($leads_detail);
-            $leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
         }
         
         
@@ -241,7 +241,8 @@ class Leads extends Controller
         $active = "skin-green sidebar-mini";
         $active_menu = "list_leads";
         $loggedin_user = $_SESSION["loggedin_user"];
-        $countTodayLeads = $this->model->countAllFollowupForCounsellor($loggedin_user["user_id"]);
+        $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+        $countTodayLeads = sizeof($leads_detail_today);
         $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
         //$leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
         $lead_detail = $this->model->getLeadByIDAndCounsellor($loggedin_user["user_id"], $lead_id);

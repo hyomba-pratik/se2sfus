@@ -30,6 +30,7 @@
 					<tbody>
 					<?php 
 						foreach ($users_detail as $key => $user) {
+							if ($user["id"]!=$loggedin_user["user_id"]) {								
 					?>
 						<tr>
 							<td><?php echo $key+1; ?></td>
@@ -42,13 +43,19 @@
 							<td><?php echo ucfirst($user["status"]); ?></td>
 							
 							<td>
-								<a href="" data-rel="tooltip" title="Edit Profile"><i class="fa fa-pencil"></i></a> |
-								<a href="" data-rel="tooltip" title="View Leads"><i class="fa fa-users"></i></a> |
-								<a href="" data-rel="tooltip" title="Deactivate Profile"><i class="fa fa-remove"></i></a>
+								<a href="<?php echo URL."manager/edit_user/".$user["id"];?>" data-rel="tooltip" title="Edit Profile"><i class="fa fa-pencil"></i></a> |
+								<?php 
+									if ($user["status"]=="active") {
+								?>
+								<a data-action='change_status' href="<?php echo URL."manager/change_status/inactive/".$user["id"] ?>" data-rel="tooltip" title="Deactivate Profile"><i class="fa fa-remove"></i></a>
+								<?php	}else{ ?>
+								<a data-action='change_status' href="<?php echo URL."manager/change_status/active/".$user["id"] ?>" data-rel="tooltip" title="Activate Profile"><i class="fa fa-check"></i></a>
+								<?php }
+								?>
 							</td>
 						</tr>
 					<?php 
-						}
+						} }
 					?>	
 					</tbody>
 				</table>

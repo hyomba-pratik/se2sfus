@@ -180,9 +180,32 @@ class Model
         }
 
     }
+    function updateUser($user_id, $name, $contact, $email, $address, $role, $password){
+        $sql = "UPDATE user SET name='$name',contact_no='$contact',email='$email',address='$address', role='$role', password='$password' WHERE id = $user_id";
+        $query = $this->db->prepare($sql);
+        /*echo $sql;
+        die();*/
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
     function updateStatus($action, $lead_id){
         $sql = "UPDATE leads SET status = '$action' WHERE id = $lead_id";
+        //die($sql);
+        $query = $this->db->prepare($sql);
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function change_Userstatus($action, $user_id){
+        $sql = "UPDATE user SET status = '$action' WHERE id = $user_id";
         //die($sql);
         $query = $this->db->prepare($sql);
         if($query->execute()){

@@ -50,8 +50,21 @@
                         </ul>
                     </li>
 
-                    <?php    }
+                    <?php    }else if($loggedin_user["user_role"]=="Manager"){
                     ?>
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-file-text"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Reports available</li>
+                            <li><a href=""><i class="fa fa-users text-blue"></i>Counsellor Report</a></li>
+                            <li><a href="">Active Leads</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <?php } ?>
                     
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -67,7 +80,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?php echo URL."utils/profile"?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?php echo URL."utils/do_logout"; ?>" class="btn btn-default btn-flat">Log out</a>

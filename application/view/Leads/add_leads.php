@@ -10,7 +10,7 @@
     <!-- Main content -->
     <section class="content">
     	<div class="row">
-			<form class="" method="post" action="<?php echo URL; ?>leads/<?php echo ($edit_lead)?"update_lead/".$lead_id:"do_add_lead"; ?>">
+			<form name="add_lead" method="post" action="<?php echo URL; ?>leads/<?php echo ($edit_lead)?"update_lead/".$lead_id:"do_add_lead"; ?>">
 				<div class="col-md-6">
 	    			<div class="box box-success">
 	    				<div class="box-header with-border">
@@ -22,30 +22,30 @@
 	    							<div class="col-sm-6">
 	    								<div class="form-group">
 	    									<label class="control-label">First Name</label>
-		    								<input type="text" value="<?php echo ($edit_lead)?$lead_detail["first_name"]:""; ?>" class="form-control" placeholder="Enter leads' first name" name="first_name">
+		    								<input required type="text" value="<?php echo ($edit_lead)?$lead_detail["first_name"]:""; ?>" class="form-control" placeholder="Enter leads' first name" name="first_name">
 			    						</div>
 	    							</div>
 	    							<div class="col-sm-6">
 	    								<div class="form-group">
 	    									<label class="control-label">Last Name</label>
-		    								<input type="text" value="<?php echo ($edit_lead)?$lead_detail["last_name"]:""; ?>" class="form-control" placeholder="Enter leads' last name" name="last_name">
+		    								<input required type="text" value="<?php echo ($edit_lead)?$lead_detail["last_name"]:""; ?>" class="form-control" placeholder="Enter leads' last name" name="last_name">
 			    						</div>
 	    							</div>
 	    						</div>
 	    						
 	    						<div class="form-group">
 	    							<label class="control-label">Contact Number</label>
-    								<input type="text" value="<?php echo ($edit_lead)?$lead_detail["contact_no"]:""; ?>" class="form-control" placeholder="Enter leads' contact number" name="contact">
+    								<input type="number" minlength="10" required value="<?php echo ($edit_lead)?$lead_detail["contact_no"]:""; ?>" class="form-control" placeholder="Enter leads' contact number" name="contact">
 	    						</div>
 	    						<div class="form-group">
 	    							<label class="control-label">Email</label>
-    								<input type="email" value="<?php echo ($edit_lead)?$lead_detail["email"]:""; ?>" class="form-control" placeholder="Enter leads' email address" name="email">
+    								<input type="email" required value="<?php echo ($edit_lead)?$lead_detail["email"]:""; ?>" class="form-control" placeholder="Enter leads' email address" name="email">
 	    						</div>
 	    						<div class="row">
 	    							<div class="col-sm-6">
 	    								<div class="form-group">
 			    							<label class="control-label">Address</label>
-		    								<input type="text" value="<?php echo ($edit_lead)?$lead_detail["address"]:""; ?>" class="form-control" placeholder="Enter leads' street address" name="address">
+		    								<input required type="text" value="<?php echo ($edit_lead)?$lead_detail["address"]:""; ?>" class="form-control" placeholder="Enter leads' street address" name="address">
 			    						</div>
 	    							</div>
 	    							<div class="col-sm-6">
@@ -58,11 +58,82 @@
 										    		}
 										    	?>
 										        
-										        <option>option 1</option>
-										        <option>option 2</option>
-										        <option>option 3</option>
-										        <option>option 4</option>
-										        <option>option 5</option>
+										        <option>Achham</option>
+												<option>Arghakhanchi</option>
+												<option>Baglung</option>
+												<option>Baitadi</option>
+												<option>Bajhang</option>
+												<option>Bajura</option>
+												<option>Banke</option>
+												<option>Bara</option>
+												<option>Bardiya</option>
+												<option>Bhaktapur</option>
+												<option>Bhojpur</option>
+												<option>Chitwan</option>
+												<option>Dadeldhura</option>
+												<option>Dailekh</option>
+												<option>Dang</option>
+												<option>Darchula</option>
+												<option>Dhading</option>
+												<option>Dhankuta</option>
+												<option>Dhanusa</option>
+												<option>Dolakha</option>
+												<option>Dolpa</option>
+												<option>Doti</option>
+												<option>Gorkha</option>
+												<option>Gulmi</option>
+												<option>Humla</option>
+												<option>Ilam</option>
+												<option>Jajarkot</option>
+												<option>Jhapa</option>
+												<option>Jumla</option>
+												<option>Kailali</option>
+												<option>Kalikot</option>
+												<option>Kanchanpur</option>
+												<option>Kapilvastu</option>
+												<option>Kaski</option>
+												<option>Kathmandu</option>
+												<option>Kavrepalanchok</option>
+												<option>Khotang</option>
+												<option>Lalitpur</option>
+												<option>Lamjung</option>
+												<option>Mahottari</option>
+												<option>Makwanpur</option>
+												<option>Manang</option>
+												<option>Morang</option>
+												<option>Mugu</option>
+												<option>Mustang</option>
+												<option>Myagdi</option>
+												<option>Nawalparasi</option>
+												<option>Nuwakot</option>
+												<option>Okhaldhunga</option>
+												<option>Palpa</option>
+												<option>Panchthar</option>
+												<option>Parbat</option>
+												<option>Parsa</option>
+												<option>Pyuthan</option>
+												<option>Ramechhap</option>
+												<option>Rasuwa</option>
+												<option>Rautahat</option>
+												<option>Rolpa</option>
+												<option>Rukum</option>
+												<option>Rupandehi</option>
+												<option>Salyan</option>
+												<option>Sankhuwasabha</option>
+												<option>Saptari</option>
+												<option>Sarlahi</option>
+												<option>Sindhuli</option>
+												<option>Sindhupalchok</option>
+												<option>Siraha</option>
+												<option>Solukhumbu</option>
+												<option>Sunsari</option>
+												<option>Surkhet</option>
+												<option>Syangja</option>
+												<option>Tanahun</option>
+												<option>Taplejung</option>
+												<option>Terhathum</option>
+												<option>Udayapur</option>
+
 										    </select>
 										</div>
 	    							</div>
@@ -83,7 +154,7 @@
 	    							<label class="control-label">Next follow up after <small>(In Days)</small></label>
     								<div class="form-group">
     									<div class="form-group">
-	        								<input type="number" class="form-control" value="<?php echo $diff; ?>" placeholder="Enter the number of days to followup after." name="next_follow">
+	        								<input type="number" min="0" required class="form-control" value="<?php echo $diff; ?>" placeholder="Enter the number of days to followup after." name="next_follow">
 
 										</div>
     								</div>
@@ -185,4 +256,3 @@
 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-

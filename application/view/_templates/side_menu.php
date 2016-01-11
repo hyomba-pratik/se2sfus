@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li class="<?php echo ($active_menu=="profile")?"active":""; ?>">
-                <a href="<?php echo URL."counsellor/profile"; ?>" accesskey="5">
+                <a href="<?php echo URL."utils/profile"; ?>" accesskey="5">
                     <i class="fa fa-user"></i> <span>5. My Profile</span>
                 </a>
             </li>
