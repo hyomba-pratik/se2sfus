@@ -20,6 +20,10 @@
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <?php 
+                        if ($loggedin_user["user_role"]=="Counsellor") {
+                    ?>
+                    
                     <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
@@ -45,6 +49,9 @@
                             <li class="footer"><a href="<?php echo URL."leads/todays_followup";?>">View all leads</a></li>
                         </ul>
                     </li>
+
+                    <?php    }
+                    ?>
                     
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

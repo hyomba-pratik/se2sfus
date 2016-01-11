@@ -14,7 +14,7 @@
 				<table class="table" data-table='footable']>
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th>SN</th>
 							<th data-sortable="false">Full Name</th>
 							<th data-sortable="false">Contact</th>
 							<th data-breakpoints="all" data-type="html" data-sortable="false">Email</th>
@@ -56,7 +56,7 @@
 								if ($loggedin_user["user_role"]=="Counsellor") {
 							?>
 							<td>
-								<a href="#<?php /* echo URL; ?>leads/change_status/delete/<?php echo $lead["id"]; */?>" title="Edit" data-rel="tooltip"><i class="fa fa-pencil"></i></a> |
+								<a href="<?php  echo URL; ?>leads/edit_lead/<?php echo $lead["id"]; ?>" title="Edit" data-rel="tooltip"><i class="fa fa-pencil"></i></a> |
 								<a href="<?php echo URL; ?>leads/change_status/delete/<?php echo $lead["id"]; ?>" data-action='delete' title="Delete" data-rel="tooltip"><i class="fa fa-user-times"></i></a> |
 								<a class="<?php echo ($lead["type"]=='Student')?"hide":""; ?>" href="<?php echo URL; ?>leads/change_status/student/<?php echo $lead["id"]; ?>" data-action='make_student' title="Make student" data-rel="tooltip"><i class="fa fa-mortar-board"></i></a>
 								<a class="<?php echo ($lead["type"]=='Lead')?"hide":""; ?>" href="<?php echo URL; ?>leads/change_status/lead/<?php echo $lead["id"]; ?>" data-action='make_student' title="Make Lead" data-rel="tooltip"><i class="fa fa-mortar-board"></i></a>

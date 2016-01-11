@@ -14,7 +14,7 @@
 				<table class="table" data-table='footable']>
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th>SN</th>
 							<th data-sortable="false">Full Name</th>
 							<th data-sortable="false">Contact</th>
 							<th data-type="html" data-sortable="false">Email</th>
@@ -48,7 +48,7 @@
 							<td><?php echo $lead["type"]; ?></td>
 							<td><?php echo ucfirst($lead["status"]); ?></td>
 							<td>
-								<a href="#<?php /* echo URL; ?>leads/change_status/delete/<?php echo $lead["id"]; */?>" data-id="<?php echo $lead["id"]; ?>" title="Set Next Follow up" data-rel="tooltip"><i class="fa fa-chevron-circle-right"></i></a>
+								<a href="<?php  echo URL; ?>leads/followup/<?php echo $lead["id"]; ?>" data-id="<?php echo $lead["id"]; ?>" title="Set Next Follow up" data-rel="tooltip"><i class="fa fa-chevron-circle-right"></i></a>
 							</td>
 						</tr>
 					<?php 

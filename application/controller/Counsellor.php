@@ -145,10 +145,7 @@ class Counsellor extends Controller
 
     }
 
-    function add_counsellor(){
-
-
-    }
+   
 
     function list_counsellor(){
 

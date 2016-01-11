@@ -140,5 +140,21 @@
         pieChart.Doughnut(PieData, "");
 
     </script>
+
+    <?php 
+      if (isset($edit_lead)) {
+        if ($edit_lead) {
+    ?>  
+      <script type="text/javascript">
+        var checked_level = "<?php echo $lead_detail['interested_level']?>";
+        $.each($('[name="interested_level"]'), function(index, data){
+          if ($(this).val()==checked_level) {
+            $(this).click();
+          };
+        });
+      </script>
+
+    <?php } }
+    ?>
 </body>
 </html>

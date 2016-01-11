@@ -29,13 +29,13 @@
             <?php    }else{
             ?>    
             <li class="<?php echo ($active_menu=="add_counsellor")?"active":""; ?>">
-                <a href="<?php echo URL."counsellor/add_counsellor" ?>" accesskey="2">
-                    <i class="fa fa-user-plus"></i> <span>2. Add Counsellor</span>
+                <a href="<?php echo URL."manager/add_user" ?>" accesskey="2">
+                    <i class="fa fa-user-plus"></i> <span>2. Add User</span>
                 </a>
             </li>
             <li class="<?php echo ($active_menu=="list_counsellor")?"active":""; ?>">
-                <a href="<?php echo URL."counsellor/list_counsellor"; ?>" accesskey="3">
-                    <i class="fa fa-list"></i> <span>3. List Counsellor</span>
+                <a href="<?php echo URL."manager/list_users"; ?>" accesskey="3">
+                    <i class="fa fa-list"></i> <span>3. List Users</span> <small class="label pull-right bg-<?php echo (($loggedin_user["user_role"])=="Counsellor")?"green":"blue"; ?>"><?php echo $countUsers; ?></small>
                 </a>
             </li>
             <?php } ?>
