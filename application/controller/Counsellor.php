@@ -18,6 +18,8 @@ class Counsellor extends Controller
 
         $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
         $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+        //print_r($leads_detail_today);
+
         $countTodayLeads = sizeof($leads_detail_today);
 
         require APP . 'view/_templates/header.php';
@@ -26,26 +28,5 @@ class Counsellor extends Controller
         require APP . 'view/counsellor/dashboard.php';
         require APP . 'view/_templates/footer.php';
     }
-
-    
-
-   
-
-    function list_counsellor(){
-
-    }
-
-    function edit_counsellor($counsellor_id){
-
-    }
-
-    function change_status(){
-
-    }
-
-    function delete_counsellor($counsellor_id){
-
-    }
-
     
 }

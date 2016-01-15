@@ -14,6 +14,19 @@
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-lg-4 col-xs-6">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>Add Lead</h3>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <a href="<?php echo URL; ?>leads/add_leads" class="small-box-footer">Add new lead <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-green">
                             <div class="inner">
@@ -27,19 +40,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-green">
-                            <div class="inner">
-                                <h3>5</h3>
-                                <p>New Leads Today</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <a href="<?php echo URL; ?>leads/add_leads" class="small-box-footer">Add new lead <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
+                   
 
                     <div class="col-lg-4 col-xs-6">
                         <!-- small box -->
