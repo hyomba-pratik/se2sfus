@@ -3,7 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Update Follow up
+            <?php 
+            	if ($loggedin_user["user_role"]=="Manager") {
+            		echo "Follow Up Detail";
+            	}else{
+            		echo "Update Follow up";
+            	}
+            ?>
         </h1>
     </section>
 

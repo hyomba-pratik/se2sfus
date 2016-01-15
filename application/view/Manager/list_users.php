@@ -44,6 +44,7 @@
 							
 							<td>
 								<a href="<?php echo URL."manager/edit_user/".$user["id"];?>" data-rel="tooltip" title="Edit Profile"><i class="fa fa-pencil"></i></a> |
+								<a href="<?php echo URL."manager/list_leads/".$user["id"];?>" data-rel="tooltip" title="View Leads"><i class="fa fa-users"></i></a> |
 								<?php 
 									if ($user["status"]=="active") {
 								?>

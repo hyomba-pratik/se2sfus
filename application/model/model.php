@@ -22,7 +22,8 @@ class Model
     }
 
     function addLead($counsellor_id, $first_name, $last_name, $contact, $email, $address, $district, $next_follow, $interested_level, $interested_faculty, $interested_semester, $comments){
-        $sql = "INSERT INTO leads(counsellor_id, first_name, last_name, contact_no, email, address, district, follow_up_date, interested_level, interested_semester, interested_faculty, comments, type, status) VALUES ($counsellor_id, '$first_name', '$last_name', '$contact', '$email', '$address', '$district', '$next_follow', '$interested_level', '$interested_semester', '$interested_faculty', '$comments','lead','active')";
+        $date = date('Y-m-d');
+        $sql = "INSERT INTO leads(counsellor_id, first_name, last_name, contact_no, email, address, district, follow_up_date, interested_level, interested_semester, interested_faculty, comments, type, status, date) VALUES ($counsellor_id, '$first_name', '$last_name', '$contact', '$email', '$address', '$district', '$next_follow', '$interested_level', '$interested_semester', '$interested_faculty', '$comments','lead','active','$date')";
        
         $query = $this->db->prepare($sql);
 

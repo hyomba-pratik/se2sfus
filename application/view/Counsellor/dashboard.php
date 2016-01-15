@@ -55,62 +55,11 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6">
-                        <div class="box box-success">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Leads Location Chart</h3>
-                            </div><!-- /.box-header -->
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="chart-responsive">
-                                            <canvas id="pieChart" height="250"></canvas>
-                                        </div><!-- ./chart-responsive -->
-                                    </div><!-- /.col -->
-                                   
-                                </div><!-- /.row -->
-                            </div><!-- /.box-body -->
-                        </div>
-                    </div>    
+                      
                 </div>    
 
                 
             </div>
-
-            <div class="col-sm-3">
-                <div class="pad box-pane-right bg-green pb20" >
-                    <div class="description-block margin-bottom">
-                        <div class="sparkbar pad" >
-                            <i class="fa fa-bar-chart fa-4x"></i>
-                        </div>
-                        <h5 class="description-header">20</h5>
-                        <span class="description-text">Total Leads</span>
-                    </div><!-- /.description-block -->
-                    <div class="description-block margin-bottom">
-                        <div class="sparkbar pad" >
-                            <i class="fa fa-bar-chart fa-4x"></i>
-                        </div>
-                        <h5 class="description-header">30%</h5>
-                        <span class="description-text">Not Interested</span>
-                    </div><!-- /.description-block -->
-                    <div class="description-block">
-                        <div class="sparkbar pad" >
-                            <i class="fa fa-bar-chart fa-4x"></i>
-                        </div>
-                        <h5 class="description-header">70%</h5>
-                        <span class="description-text">Interested</span>
-                    </div><!-- /.description-block -->
-                </div>                
-            </div>
-
-            
-
-            
-
-                 
-
-            
-
 
         </div>
     </section><!-- /.content -->

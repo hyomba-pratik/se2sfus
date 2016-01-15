@@ -179,9 +179,9 @@ class Leads extends Controller
         $active = "skin-green sidebar-mini";
         $active_menu = "add_leads";
         $loggedin_user = $_SESSION["loggedin_user"];
-        $countTodayLeads = $this->model->countAllFollowupForCounsellor($loggedin_user["user_id"]);
         $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
-        //$leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
+        $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+        $countTodayLeads = sizeof($leads_detail_today);
         $lead_detail = $this->model->getLeadByIDAndCounsellor($loggedin_user["user_id"], $lead_id);
         if (!$lead_detail) {
             $_SESSION["flash-msg"] = "Can't access that. Nice try!";
@@ -241,19 +241,44 @@ class Leads extends Controller
         $active = "skin-green sidebar-mini";
         $active_menu = "list_leads";
         $loggedin_user = $_SESSION["loggedin_user"];
-        $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
-        $countTodayLeads = sizeof($leads_detail_today);
-        $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
-        //$leads_detail_today = $this->model->getAllFollowUpForCounsellor($loggedin_user["user_id"]);
         $lead_detail = $this->model->getLeadByIDAndCounsellor($loggedin_user["user_id"], $lead_id);
-        if (!$lead_detail) {
-            $_SESSION["flash-msg"] = "Can't access that. Nice try!";
-            $_SESSION["flash-type"] = "error";
 
-            return header('location: ' . URL.$loggedin_user["user_role"]);
+        if ($loggedin_user["user_role"]=="Counsellor") {
+            $leads_detail = $this->model->getAllLeadsForCounsellor($loggedin_user["user_id"]);
+            $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+            $countTodayLeads = sizeof($leads_detail_today);
+            $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);       
+        }else{
+            $leads_detail = $this->model->getAllLeads();
+            $leads_detail_today = $this->model->getActiveFollowUpForCounsellor($loggedin_user["user_id"]);
+            $countTodayLeads = sizeof($leads_detail_today);
+            $countLead = sizeof($leads_detail);
+            $countUsers = sizeof($this->model->getAllUsers());
         }
+        
+        
+        if ($loggedin_user["user_role"]!="Counsellor") {
+            $lead_detail = $this->model->getLeadByID($lead_id);
+           // print_r($leads_detail);
+            if (!$lead_detail) {
+                $_SESSION["flash-msg"] = "Can't access that. Nice try!";
+                $_SESSION["flash-type"] = "error";
+
+                return header('location: ' . URL.$loggedin_user["user_role"]);
+            }
+        }
+       
 
         $followup_detail = $this->model->getLeadFeedBackData($lead_id);
+
+        //print_r($followup_detail);
+        if ($followup_detail["follow_up_count"]>8) {
+            $resp = $this->model->updateStatus("expired", $lead_id);
+            $_SESSION["flash-msg"] = "You have already done 8 followups. This lead is now expired.";
+            $_SESSION["flash-type"] = "warning";
+
+            return header('location: ' . URL."leads/todays_followup");
+        }
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';

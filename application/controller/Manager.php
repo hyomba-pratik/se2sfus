@@ -16,8 +16,46 @@ class Manager extends Controller
         $active_menu = "dashboard";
         $loggedin_user = $_SESSION["loggedin_user"];
 
-        $countLead = sizeof($this->model->getAllLeads());
+        $leads_detail = $this->model->getAllLeads();
+        $countLead = sizeof($leads_detail);
         $countUsers = sizeof($this->model->getAllUsers());
+
+        $dataset= array(
+            "Jan"=>"","Feb"=>"","Mar"=>"","Apr"=>"","May"=>"","Jun"=>"","Jul"=>"","Aug"=>"","Sep"=>"","Oct"=>"","Nov"=>"","Dec"=>""
+            );
+
+        $countActive = 0;
+        $countExpired = 0;
+        $countDismissed = 0;
+        $countPostPoned = 0;
+
+
+        foreach ($leads_detail as $key => $lead) {            
+            $monthtocheck =date("M",strtotime($lead["date"])); 
+            $dataset["Jan"]+=($monthtocheck=="Jan")?1:"";
+            $dataset["Feb"]+=($monthtocheck=="Feb")?1:"";
+            $dataset["Mar"]+=($monthtocheck=="Mar")?1:"";
+            $dataset["Apr"]+=($monthtocheck=="Apr")?1:"";
+            $dataset["May"]+=($monthtocheck=="May")?1:"";
+            $dataset["Jun"]+=($monthtocheck=="Jun")?1:"";
+            $dataset["Jul"]+=($monthtocheck=="Jul")?1:"";
+            $dataset["Aug"]+=($monthtocheck=="Aug")?1:"";
+            $dataset["Sep"]+=($monthtocheck=="Sep")?1:"";
+            $dataset["Oct"]+=($monthtocheck=="Oct")?1:"";
+            $dataset["Nov"]+=($monthtocheck=="Nov")?1:"";
+            $dataset["Dec"]+=($monthtocheck=="Dec")?1:"";
+
+            $countActive+=($lead["status"]=="active")?1:0;
+            $countExpired+=($lead["status"]=="expired")?1:0;
+            $countDismissed+=($lead["status"]=="dismissed")?1:0;
+            $countPostPoned+=($lead["status"]=="postponed")?1:0;
+        }
+
+
+        //echo $countActive;
+
+       
+        
         
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
@@ -244,6 +282,39 @@ class Manager extends Controller
         }
 
         return header('location: ' . URL .'manager/list_users' );
+    }
+
+    function list_leads($counsellor_id){
+        if (!isset($_SESSION["loggedin_user"])) {
+            $_SESSION["flash-msg"] = "Can't access that. Nice try!";
+            $_SESSION["flash-type"] = "error";
+
+            return header('location: ' . URL);
+        }
+
+        if ($_SESSION["loggedin_user"]["user_role"]!="Manager") {
+            $_SESSION["flash-msg"] = "Can't access that. Nice try!";
+            $_SESSION["flash-type"] = "error";
+
+            return header('location: ' . URL);
+        }
+
+        $active = "skin-green sidebar-mini";
+        $active_menu = "add_user";
+        $loggedin_user = $_SESSION["loggedin_user"];
+        $countLead = sizeof($this->model->getAllLeads());
+        $countUsers = sizeof($this->model->getAllUsers());
+
+        $counsellor_detail = $this->model->getCounsellor($counsellor_id);
+
+        $leads_detail  = $this->model->getAllLeadsForCounsellor($counsellor_id);
+
+        //print_r($user_detail);
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/top_menu.php';
+        require APP . 'view/_templates/side_menu.php';
+        require APP . 'view/manager/list_leads_by_counsellor.php';
+        require APP . 'view/_templates/footer.php';
     }
     
 }

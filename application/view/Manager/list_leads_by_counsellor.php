@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            List Lead
+           Leads Added By <strong><?php echo $counsellor_detail["name"]; ?></strong>
         </h1>
     </section>
 
@@ -26,14 +26,7 @@
 							<th data-breakpoints="all">Notes</th>
 							<th data-breakpoints="all">Type</th>
 							<th data-breakpoints="all">Status</th>
-							<?php 
-								if ($loggedin_user["user_role"]=="Counsellor") {
-									echo '<th data-sortable="false" data-type="html"></th>';
-								}else{
-									echo '<th data-sortable="false">Added By</th><th data-type="html"></th>';
-								}
-							?>
-							
+							<th data-type="html"></th>
 							
 						</tr>
 					</thead>
@@ -55,23 +48,12 @@
 							<td><?php echo ucfirst($lead["comments"]); ?></td>
 							<td><?php echo $lead["type"]; ?></td>
 							<td><?php echo ucfirst($lead["status"]); ?></td>
-							<?php 
-								if ($loggedin_user["user_role"]=="Counsellor") {
-							?>
-							<td>
-								<a href="<?php  echo URL; ?>leads/edit_lead/<?php echo $lead["id"]; ?>" title="Edit" data-rel="tooltip"><i class="fa fa-pencil"></i></a> |
-								<a href="<?php echo URL; ?>leads/change_status/delete/<?php echo $lead["id"]; ?>" data-action='delete' title="Delete" data-rel="tooltip"><i class="fa fa-user-times"></i></a> |
-								<a class="<?php echo ($lead["type"]=='Student')?"hide":""; ?>" href="<?php echo URL; ?>leads/change_status/student/<?php echo $lead["id"]; ?>" data-action='make_student' title="Make student" data-rel="tooltip"><i class="fa fa-mortar-board"></i></a>
-								<a class="<?php echo ($lead["type"]=='Lead')?"hide":""; ?>" href="<?php echo URL; ?>leads/change_status/lead/<?php echo $lead["id"]; ?>" data-action='make_student' title="Make Lead" data-rel="tooltip"><i class="fa fa-mortar-board"></i></a>
-							</td>
-							<?php }else{ ?>
-							<td>
-								<?php echo $lead["counsellor_detail"]["name"]; ?>
-							</td>
+							
+						
 							<td>
 								<a href="<?php  echo URL; ?>leads/followup/<?php echo $lead["id"]; ?>" data-id="<?php echo $lead["id"]; ?>" title="Follow up detail" data-rel="tooltip"><i class="fa fa-chevron-circle-right"></i></a>
 							</td>
-							<?php } ?>
+							
 						</tr>
 					<?php 
 						}
