@@ -52,7 +52,7 @@
 
                     <?php    }else if($loggedin_user["user_role"]=="Manager"){
                     ?>
-                    <li class="dropdown notifications-menu">
+                   <!--  <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-file-text"></i>
                         </a>
@@ -62,7 +62,7 @@
                             <li><a href="">Active Leads</a></li>
                             
                         </ul>
-                    </li>
+                    </li> -->
 
                     <?php } ?>
                     
