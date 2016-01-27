@@ -16,6 +16,11 @@ class Error extends Controller
      */
     public function index()
     {
+        /*
+        To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();
+        */
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/error/index.php';

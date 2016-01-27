@@ -54,7 +54,9 @@ class Manager extends Controller
 
         //echo $countActive;
 
-       
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
         
         
         require APP . 'view/_templates/header.php';
@@ -87,6 +89,11 @@ class Manager extends Controller
         $countLead = sizeof($this->model->getAllLeads());
 
         $countUsers = sizeof($this->model->getAllUsers());
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();
+        */
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';
@@ -143,6 +150,11 @@ class Manager extends Controller
         }
             
 
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+        
+
         return header('location: ' . URL."manager/add_user");
 
     }
@@ -177,6 +189,10 @@ class Manager extends Controller
         }
 
         /*print_r($users_detail);*/
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
@@ -222,7 +238,7 @@ class Manager extends Controller
 
     function update_user($user_id){
         /*echo $user_id;
-        print_r($_POST);
+        
         die();*/
 
         if ($_SESSION["loggedin_user"]["user_role"]!="Manager") {
@@ -264,6 +280,11 @@ class Manager extends Controller
             $_SESSION["flash-type"] = "error";
         }
 
+        /*print_r($_POST);
+        //To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+
         return header('location: ' . URL .'manager/edit_user/'.$user_id );
     }
 
@@ -280,6 +301,10 @@ class Manager extends Controller
             $_SESSION["flash-msg"] = "Can't perform the requested action right now. Please try again later.";
             $_SESSION["flash-type"] = "error";
         }
+
+        //To check all the defined vars.
+        /*print_r((get_defined_vars()));
+        die();*/
 
         return header('location: ' . URL .'manager/list_users' );
     }
@@ -310,6 +335,11 @@ class Manager extends Controller
         $leads_detail  = $this->model->getAllLeadsForCounsellor($counsellor_id);
 
         //print_r($user_detail);
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';

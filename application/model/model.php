@@ -15,6 +15,7 @@ class Model
     }
 
     function checkUserLogin($email, $password){
+        $password = sha1($password);
         $sql = "SELECT * FROM user where email='$email' and password='$password'";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -182,6 +183,7 @@ class Model
 
     }
     function updateUser($user_id, $name, $contact, $email, $address, $role, $password){
+        $password = sha1($password);
         $sql = "UPDATE user SET name='$name',contact_no='$contact',email='$email',address='$address', role='$role', password='$password' WHERE id = $user_id";
         $query = $this->db->prepare($sql);
         /*echo $sql;
@@ -258,6 +260,7 @@ class Model
 
     function checkPasswordForProfile($user_id, $password){
         //die($user_id.$password);
+        $password = sha1($password);
         $sql = "SELECT * FROM user where id='$user_id' and password='$password'";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -290,6 +293,7 @@ class Model
     }
 
     function update_password($user_id, $password){
+        $password = sha1($password);
         $sql = "UPDATE user SET password='$password' WHERE id = $user_id";
         $query = $this->db->prepare($sql);
         if($query->execute()){
@@ -300,6 +304,7 @@ class Model
     }
 
     function addUser($name, $contact, $email, $address, $role, $password){
+        $password = sha1($password);
         $sql = "INSERT INTO user(name, contact_no, email, address, role, password, status) VALUES ('$name', '$contact', '$email', '$address', '$role', '$password', 'active')";
        
         $query = $this->db->prepare($sql);

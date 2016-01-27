@@ -8,8 +8,9 @@ class Utils extends Controller
             
             header('location: ' . URL . 'utils/dashboard');
         }
-       
+        
         $active = "login-page";
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/utils/login.php';
         require APP . 'view/_templates/footer.php';
@@ -53,8 +54,13 @@ class Utils extends Controller
         }else{
             $_SESSION["flash-msg"] = "Invalid email or password. Please enter correct email and password!";
             $_SESSION["flash-type"] = "error";
-            header('location: ' . URL);
+            return header('location: ' . URL);
         }
+
+        /*//To check all the defined vars.
+        print_r($_POST);
+        print_r((get_defined_vars()));
+        die();*/
     }
 
     function dashboard(){
@@ -163,6 +169,11 @@ class Utils extends Controller
             $_SESSION["flash-msg"] = "Can't perform the requested action right now. Please try again later.";
             $_SESSION["flash-type"] = "error";
         }
+
+        /*//To check all the defined vars.
+        print_r($_POST);
+        print_r((get_defined_vars()));
+        die();*/
         return header('location: ' . URL."utils/profile");
 
     }
@@ -207,6 +218,12 @@ class Utils extends Controller
             $_SESSION["flash-msg"] = "Can't perform the requested action right now. Please try again later.";
             $_SESSION["flash-type"] = "error";
         }
+
+         /*//To check all the defined vars.
+        print_r($_POST);
+        print_r((get_defined_vars()));
+        die();*/
+
         return header('location: ' . URL."utils/profile");
 
     }

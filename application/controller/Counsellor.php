@@ -22,6 +22,13 @@ class Counsellor extends Controller
 
         $countTodayLeads = sizeof($leads_detail_today);
 
+        
+        /*
+        To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();
+        */
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';

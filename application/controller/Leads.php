@@ -18,6 +18,11 @@ class Leads extends Controller
         $countTodayLeads = sizeof($leads_detail_today);
         $countLead = $this->model->countAllLeadsForCounsellor($loggedin_user["user_id"]);
         $edit_lead = false;
+
+       /* //To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';
@@ -56,6 +61,12 @@ class Leads extends Controller
             $_SESSION["flash-type"] = "error";
         }
 
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+        
+
         return header('location: ' . URL .'leads/list_leads' );
     }
 
@@ -86,6 +97,10 @@ class Leads extends Controller
             $_SESSION["flash-msg"] = "Can't perform the requested action right now. Please try again later.";
             $_SESSION["flash-type"] = "error";
         }
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
 
         return header('location: ' . URL .'leads/list_leads' );
     }
@@ -129,6 +144,10 @@ class Leads extends Controller
         /*print_r($leads_detail);
         die();*/
 
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';
@@ -158,6 +177,10 @@ class Leads extends Controller
         }
 
         /*print_r($leads_detail);
+        die();*/
+
+       /* //To check all the defined vars.
+        print_r((get_defined_vars()));
         die();*/
 
         require APP . 'view/_templates/header.php';
@@ -190,6 +213,11 @@ class Leads extends Controller
             return header('location: ' . URL.$loggedin_user["user_role"]);
         }
         $edit_lead = true;
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';
@@ -200,8 +228,8 @@ class Leads extends Controller
 
     function update_lead($lead_id){
        /* echo $lead_id;
-        print_r($_POST);*/
-
+       */
+        //print_r($_POST);
         $next_follow_date = date('Y-m-d', strtotime("+".$_POST["next_follow"]." days"));
 
         $update_lead = $this->model->updateLead($lead_id, 
@@ -225,6 +253,10 @@ class Leads extends Controller
             $_SESSION["flash-msg"] = "Can't perform the requested action right now. Please try again later.";
             $_SESSION["flash-type"] = "error";
         }
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
 
         return header('location: ' . URL .'leads/edit_lead/'.$lead_id );
     }
@@ -280,6 +312,10 @@ class Leads extends Controller
             return header('location: ' . URL."leads/todays_followup");
         }
 
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/top_menu.php';
         require APP . 'view/_templates/side_menu.php';
@@ -295,6 +331,11 @@ class Leads extends Controller
 
         $_SESSION["flash-msg"] = "Follow up updated successfully.";
         $_SESSION["flash-type"] = "success";
+
+        /*//To check all the defined vars.
+        print_r((get_defined_vars()));
+        die();*/
+        
         return header('location: ' . URL. "leads/followup/".$lead_id);
     }
 }
